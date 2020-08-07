@@ -15,10 +15,10 @@ const defaultCallback = (err, data) => data || err;
  * @returns {String} "yyyy-mm-ddThh:mm:ss[.ms]+hhmm"
  */
 const localeTimezoneDate_toISOString = (date, options = defaultOptions_toISOString, callback = defaultCallback) => {
-    if (typeof options === "function") {
+    if (typeof options === "function")
         callback = options;
+    if (options.ms === undefined)
         options = defaultOptions_toISOString;
-    }
     if (date instanceof Date)
         return callback(null, pad2(date.getFullYear()) + "-" + pad2(date.getMonth() + 1) + "-" + pad2(date.getDate()) + "T" + pad2(date.getHours()) + ":" + pad2(date.getMinutes()) + ":" + pad2(date.getSeconds()) + (options.ms === true ? "." + pad3(date.getMilliseconds()) : "") + getUTCOffset(date).hhmm);
     else
@@ -32,10 +32,10 @@ const localeTimezoneDate_toISOString = (date, options = defaultOptions_toISOStri
  * @returns {String} "yyyy-mm-ddThh:mm:ss[.ms]Z"
  */
 const localeTimezoneDate_toFalseISOString = (date, options = defaultOptions_toISOString, callback = defaultCallback) => {
-    if (typeof options === "function") {
+    if (typeof options === "function")
         callback = options;
+    if (options.ms === undefined)
         options = defaultOptions_toISOString;
-    }
     if (date instanceof Date)
         return callback(null, pad2(date.getFullYear()) + "-" + pad2(date.getMonth() + 1) + "-" + pad2(date.getDate()) + "T" + pad2(date.getHours()) + ":" + pad2(date.getMinutes()) + ":" + pad2(date.getSeconds()) + (options.ms === true ? "." + pad3(date.getMilliseconds()) : "") + "Z");
     else
