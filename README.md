@@ -79,6 +79,7 @@ localeTimezoneDate.toISOString(new Date(), iso => {
 
 let cheat = iso => console.log("cheated!...", iso);
 cheat.ms = false;
-localeTimezoneDate.toISOString(new Date(), cheat); // returns "cheated!... 2020-08-06T13:06:50+0200"
+localeTimezoneDate.toISOString(new Date(), cheat);
+// returns "cheated!... 2020-08-06T13:06:50+0200"
 </code>
 </pre>
