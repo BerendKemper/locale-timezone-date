@@ -1,7 +1,7 @@
 # localeTimezoneDate
 JavaScript locale time zone Date module
 
-<code>npm i locale-time-zone-date</code>
+<code>npm i locale-timezone-date</code>
 
 <h3>localeTimezoneDate.toISOString(date[,options][,callback])</h3>
 <ul>
