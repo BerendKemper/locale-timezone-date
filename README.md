@@ -5,44 +5,44 @@ JavaScript locale time zone Date module
 
 <h3>localeTimezoneDate.toISOString(date[,options][,callback])</h3>
 <ul>
-    <li><code>date</code> &lt;Date></li>
-    <li><code>options</code> &lt;Object&gt;</li>
+    <li><code>date</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">&lt;Date></a></li>
+    <li><code>options</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">&lt;Object&gt;</a></li>
     <ul>
-        <li><code>ms</code> &lt;Boolean&gt; Default: <code>true</code></li>
+        <li><code>ms</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type">&lt;Boolean&gt;</a> Default: <code>true</code></li>
     </ul>
-    <li><code>callback</code> &lt;Function&gt;</li>
+    <li><code>callback</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">&lt;Function&gt;</a></li>
     <ul>
-        <li><code>iso</code> &lt;String&gt; | &lt;Error&gt;</li>
+        <li><code>iso</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type">&lt;String&gt;</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error">&lt;Error&gt;</a></li>
     </ul>
 </ul>
 <h3>localeTimezoneDate.toFalseISOString(date[,options][,callback])</h3>
 <ul>
-    <li><code>date</code> &lt;Date></li>
-    <li><code>options</code> &lt;Object&gt;</li>
+    <li><code>date</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">&lt;Date></a></li>
+    <li><code>options</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">&lt;Object&gt;</a></li>
     <ul>
-        <li><code>ms</code> &lt;Boolean&gt; Default: <code>true</code></li>
+        <li><code>ms</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type">&lt;Boolean&gt;</a> Default: <code>true</code></li>
     </ul>
-    <li><code>callback</code> &lt;Function&gt;</li>
+    <li><code>callback</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">&lt;Function&gt;</a></li>
     <ul>
-        <li><code>iso</code> &lt;String&gt; | &lt;Error&gt;</li>
+        <li><code>iso</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type">&lt;String&gt;</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error">&lt;Error&gt;</a></li>
     </ul>
 </ul>
 
 <h3>yyyymmdd.toString(date[,callback])</h3>
 <ul>
-    <li><code>date</code> &lt;Date></li>
+    <li><code>date</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">&lt;Date></a></li>
     <li><code>callback</code> &lt;Function&gt;</li>
     <ul>
-        <li><code>dt</code> &lt;String&gt; | &lt;Error&gt;</li>
+        <li><code>dt</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type">&lt;String&gt;</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error">&lt;Error&gt;</a></li>
     </ul>
 </ul>
 
 <h3>yyyymmdd.toMs(date[,callback])</h3>
 <ul>
-    <li><code>date</code> &lt;Date></li>
-    <li><code>callback</code> &lt;Function&gt;</li>
+    <li><code>date</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">&lt;Date></a></li>
+    <li><code>callback</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">&lt;Function&gt;</a></li>
     <ul>
-        <li><code>ms</code> &lt;Number&gt; | &lt;Error&gt;</li>
+        <li><code>ms</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type">&lt;integer&gt;</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error">&lt;Error&gt;</a></li>
     </ul>
 </ul>
 
