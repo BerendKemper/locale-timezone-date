@@ -1,6 +1,8 @@
 # localeTimezoneDate
 JavaScript locale time zone Date module
 
+<code>npm i locale-time-zone-date</code>
+
 <h3>localeTimezoneDate.toISOString(date[,options][,callback])</h3>
 <ul>
     <li><code>date</code> &lt;Date></li>
@@ -10,8 +12,7 @@ JavaScript locale time zone Date module
     </ul>
     <li><code>callback</code> &lt;Function&gt;</li>
     <ul>
-        <li><code>err</code> &lt;Error&gt;</li>
-        <li><code>isoStr</code> &lt;String&gt;</li>
+        <li><code>iso</code> &lt;String&gt; | &lt;Error&gt;</li>
     </ul>
 </ul>
 <h3>localeTimezoneDate.toFalseISOString(date[,options][,callback])</h3>
@@ -23,8 +24,7 @@ JavaScript locale time zone Date module
     </ul>
     <li><code>callback</code> &lt;Function&gt;</li>
     <ul>
-        <li><code>err</code> &lt;Error&gt;</li>
-        <li><code>isoStr</code> &lt;String&gt;</li>
+        <li><code>iso</code> &lt;String&gt; | &lt;Error&gt;</li>
     </ul>
 </ul>
 
@@ -33,8 +33,7 @@ JavaScript locale time zone Date module
     <li><code>date</code> &lt;Date></li>
     <li><code>callback</code> &lt;Function&gt;</li>
     <ul>
-        <li><code>err</code> &lt;Error&gt;</li>
-        <li><code>dateStr</code> &lt;String&gt;</li>
+        <li><code>dt</code> &lt;String&gt; | &lt;Error&gt;</li>
     </ul>
 </ul>
 
@@ -43,16 +42,13 @@ JavaScript locale time zone Date module
     <li><code>date</code> &lt;Date></li>
     <li><code>callback</code> &lt;Function&gt;</li>
     <ul>
-        <li><code>err</code> &lt;Error&gt;</li>
-        <li><code>ms</code> &lt;Number&gt;</li>
+        <li><code>ms</code> &lt;Number&gt; | &lt;Error&gt;</li>
     </ul>
 </ul>
 
 <h3>Examples</h3>
 <pre>
-<code class="language-javascript">npm i locale-time-zone-date
-
-const { localeTimezoneDate, yyyymmdd } = require("locale-time-zone-date");
+<code class="language-javascript">const { localeTimezoneDate, yyyymmdd } = require("locale-time-zone-date");
 
 const localeISOString = localeTimezoneDate.toISOString(new Date());
 // returns "2020-08-06T13:06:50.261+0200"
@@ -77,8 +73,12 @@ date = new Date("2020-08-06T22:00:00.000+0200");
 console.log(yyyymmdd.toString(date)); // returns "2020-08-06"
 console.log(yyyymmdd.toMs(date));     // returns 1596672000000
 
-localeTimezoneDate.toISOString(new Date(), (err, isoStr) => {
-    console.log(isoStr); // returns "2020-08-06T13:06:50.261+0200"
+localeTimezoneDate.toISOString(new Date(), iso => {
+    console.log(iso); // returns "2020-08-06T13:06:50.261+0200"
 });
+
+let cheat = iso => console.log("cheated!...", iso);
+cheat.ms = false;
+localeTimezoneDate.toISOString(new Date(), cheat); // returns "cheated!... 2020-08-06T13:06:50+0200"
 </code>
 </pre>
