@@ -3,14 +3,14 @@ JavaScript locale time zone Date module
 
 <h3>Table of Contents</h3>
 <ul>
-    <li><a href="https://github.com/BerendKemper/locale-timezone-date#localetimezonedatetoisostringdateoptionscallback">localeTimezoneDate.toISOString(date[,options][,callback])</a></li>
-    <li><a href="https://github.com/BerendKemper/locale-timezone-date#localetimezonedatetofalseisostringdateoptionscallback">localeTimezoneDate.toFalseISOString(date[,options][,callback])</a></li>
-    <li><a href="https://github.com/BerendKemper/locale-timezone-date#notationyyyymmdddatecallback">notation.yyyymmdd(date[,callback])</a></li>
-    <li><a href="https://github.com/BerendKemper/locale-timezone-date#notationyyyymm01datecallback">notation.yyyymm01(date[,callback])</a></li>
-    <li><a href="https://github.com/BerendKemper/locale-timezone-date#utc0startyeartomsdatecallback">utc0.startYearToMs(date[,callback])</a></li>
-    <li><a href="https://github.com/BerendKemper/locale-timezone-date#utc0startmonthtomsdatecallback">utc0.startMonthToMs(date[,callback])</a></li>
-    <li><a href="https://github.com/BerendKemper/locale-timezone-date#utc0startdatetomsdatecallback">utc0.startDateToMs(date[,callback])</a></li>
-    <li><a href="https://github.com/BerendKemper/locale-timezone-date#examples">Examples</a></li>
+    <li><a href="https://www.npmjs.com/package/locale-timezone-date#localetimezonedatetoisostringdateoptionscallback">localeTimezoneDate.toISOString(date[,options][,callback])</a></li>
+    <li><a href="https://www.npmjs.com/package/locale-timezone-date#localetimezonedatetofalseisostringdateoptionscallback">localeTimezoneDate.toFalseISOString(date[,options][,callback])</a></li>
+    <li><a href="https://www.npmjs.com/package/locale-timezone-date#notationyyyymmdddatecallback">notation.yyyymmdd(date[,callback])</a></li>
+    <li><a href="https://www.npmjs.com/package/locale-timezone-date#notationyyyymmdatecallback">notation.yyyymm(date[,callback])</a></li>
+    <li><a href="https://www.npmjs.com/package/locale-timezone-date#utc0startyeartomsdatecallback">utc0.startYearToMs(date[,callback])</a></li>
+    <li><a href="https://www.npmjs.com/package/locale-timezone-date#utc0startmonthtomsdatecallback">utc0.startMonthToMs(date[,callback])</a></li>
+    <li><a href="https://www.npmjs.com/package/locale-timezone-date#utc0startdatetomsdatecallback">utc0.startDateToMs(date[,callback])</a></li>
+    <li><a href="https://www.npmjs.com/package/locale-timezone-date#examples">Examples</a></li>
 </ul>
 
 <pre><code>npm i locale-timezone-date
@@ -81,7 +81,7 @@ date = new Date("2020-08-06T00:00:00.000+0200");
 console.log(notation.yyyymmdd(date));  // returns "2020-08-06"
 date = new Date("2020-08-06T22:00:00.000+0200");
 console.log(notation.yyyymmdd(date));  // returns "2020-08-06"</code></pre>
-<h3>notation.yyyymm01(date[,callback])</h3>
+<h3>notation.yyyymm(date[,callback])</h3>
 <ul>
     <li><code>date</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">&lt;Date></a></li>
     <li><code>callback</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">&lt;Function&gt;</a></li>

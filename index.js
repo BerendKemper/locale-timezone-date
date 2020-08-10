@@ -44,7 +44,7 @@ const notation_yyyymmdd = (date, callback = dt => dt) => callback(date.getFullYe
  * @param {Function} callback (optional)
  * @returns {String} "yyyy-mm-01"
  */
-const notation_yyyymm01 = (date, callback = dt => dt) => callback(date.getFullYear() + "-" + pad2(date.getMonth() + 1) + "-01");
+const notation_yyyymm = (date, callback = dt => dt) => callback(date.getFullYear() + "-" + pad2(date.getMonth() + 1));
 /**
  * Calculate in UTC +0 the start-time of the date's year that have elapsed since the Unix epoch in milliseconds
  * @param {Date} date 
@@ -78,7 +78,7 @@ const localeTimezoneDate = Object.freeze({
 });
 const notation = Object.freeze({
     'yyyymmdd': notation_yyyymmdd,
-    'yyyymm01': notation_yyyymm01
+    'yyyymm': notation_yyyymm
 });
 const utc0 = Object.freeze({
     'startYearToMs': utc0_startYearToMs,
