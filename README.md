@@ -5,8 +5,8 @@ JavaScript locale time zone Date module
 <ul>
     <li><a href="https://github.com/BerendKemper/locale-timezone-date#localetimezonedatetoisostringdateoptionscallback">localeTimezoneDate.toISOString(date[,options][,callback])</a></li>
     <li><a href="https://github.com/BerendKemper/locale-timezone-date#localetimezonedatetofalseisostringdateoptionscallback">localeTimezoneDate.toFalseISOString(date[,options][,callback])</a></li>
-    <li><a href="https://github.com/BerendKemper/locale-timezone-date#notationyyyymmdddatecallback">notation.yyyymmdd(date[,callback])</a></li>
-    <li><a href="https://github.com/BerendKemper/locale-timezone-date#notationyyyymmdatecallback">notation.yyyymm(date[,callback])</a></li>
+    <li><a href="https://github.com/BerendKemper/locale-timezone-date#notationyyyymmdddatecallback">dateNotation.yyyymmdd(date[,callback])</a></li>
+    <li><a href="https://github.com/BerendKemper/locale-timezone-date#notationyyyymmdatecallback">dateNotation.yyyymm(date[,callback])</a></li>
     <li><a href="https://github.com/BerendKemper/locale-timezone-date#utc0startyeartomsdatecallback">utc0.startYearToMs(date[,callback])</a></li>
     <li><a href="https://github.com/BerendKemper/locale-timezone-date#utc0startmonthtomsdatecallback">utc0.startMonthToMs(date[,callback])</a></li>
     <li><a href="https://github.com/BerendKemper/locale-timezone-date#utc0startdatetomsdatecallback">utc0.startDateToMs(date[,callback])</a></li>
@@ -15,7 +15,7 @@ JavaScript locale time zone Date module
 
 <pre><code>npm i locale-timezone-date
 
-const { localeTimezoneDate, notation, utc0 } = require("locale-timezone-date");</code></pre>
+const { localeTimezoneDate, dateNotation, utc0 } = require("locale-timezone-date");</code></pre>
 
 <h3>localeTimezoneDate.toISOString(date[,options][,callback])</h3>
 <ul>
@@ -60,7 +60,7 @@ const regulatISOString = new Date(localeISOString).toISOString();
 (new Date(regulatISOString).getTime()
     === new Date(localeISOString).getTime())
 // returns false</code></pre>
-<h3>notation.yyyymmdd(date[,callback])</h3>
+<h3>dateNotation.yyyymmdd(date[,callback])</h3>
 <ul>
     <li><code>date</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">&lt;Date></a></li>
     <li><code>callback</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">&lt;Function&gt;</a></li>
@@ -73,15 +73,15 @@ const regulatISOString = new Date(localeISOString).toISOString();
 // Notice that my timezone is UTC +2 hours
 // ...
 date = new Date("2020-08-06T00:00:00.000Z");
-console.log(notation.yyyymmdd(date));  // returns "2020-08-06"
+console.log(dateNotation.yyyymmdd(date));  // returns "2020-08-06"
 date = new Date("2020-08-06T22:00:00.000Z");
-console.log(notation.yyyymmdd(date));  // returns "2020-08-07"
+console.log(dateNotation.yyyymmdd(date));  // returns "2020-08-07"
 // ...
 date = new Date("2020-08-06T00:00:00.000+0200");
-console.log(notation.yyyymmdd(date));  // returns "2020-08-06"
+console.log(dateNotation.yyyymmdd(date));  // returns "2020-08-06"
 date = new Date("2020-08-06T22:00:00.000+0200");
-console.log(notation.yyyymmdd(date));  // returns "2020-08-06"</code></pre>
-<h3>notation.yyyymm(date[,callback])</h3>
+console.log(dateNotation.yyyymmdd(date));  // returns "2020-08-06"</code></pre>
+<h3>dateNotation.yyyymm(date[,callback])</h3>
 <ul>
     <li><code>date</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">&lt;Date></a></li>
     <li><code>callback</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">&lt;Function&gt;</a></li>
