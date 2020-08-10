@@ -52,8 +52,8 @@ const notation_yyyymm01 = (date, callback = dt => dt) => callback(date.getFullYe
  * @returns {Number} Number of milliseconds
  */
 const utc0_startYearToMs = (date, callback = dt => dt) => {
-    date.setHours(getUTCOffset(date).hour, 0, 0, 0);
-    return callback(date.setMonth(0, 1));
+    date.setMonth(0, 1);
+    return callback(date.setHours(getUTCOffset(date).hour, 0, 0, 0));
 };
 /**
  * Calculate in UTC +0 the start-time of the date's month that have elapsed since the Unix epoch in milliseconds
@@ -62,8 +62,8 @@ const utc0_startYearToMs = (date, callback = dt => dt) => {
  * @returns {Number} Number of milliseconds
  */
 const utc0_startMonthToMs = (date, callback = dt => dt) => {
-    date.setHours(getUTCOffset(date).hour, 0, 0, 0);
-    return callback(date.setDate(1));
+    date.setDate(1);
+    return callback(date.setHours(getUTCOffset(date).hour, 0, 0, 0));
 };
 /**
  * Calculate in UTC +0 the start-time of the date's day that have elapsed since the Unix epoch in milliseconds

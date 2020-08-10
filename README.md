@@ -32,10 +32,10 @@ const { localeTimezoneDate, notation, utc0 } = require("locale-timezone-date");<
 </ul>
 <pre><code>const localeISOString = localeTimezoneDate.toISOString(new Date());
 // returns "2020-08-06T13:06:50.261+0200"
-
+//
 const regulatISOString = new Date(localeISOString).toISOString();
 // returns "2020-08-06T11:06:50.261Z"
-
+//
 new Date(regulatISOString).getTime() === new Date(localeISOString).getTime()
 // returns true</code></pre>
 <h3>localeTimezoneDate.toFalseISOString(date[,options][,callback])</h3>
@@ -53,10 +53,10 @@ new Date(regulatISOString).getTime() === new Date(localeISOString).getTime()
 </ul>
 <pre><code>const localeFalseISOString = localeTimezoneDate.toISOString(new Date());
 // returns "2020-08-06T13:06:50.261+0200"
-
+//
 const regulatISOString = new Date(localeISOString).toISOString();
 // returns "2020-08-06T11:06:50.261Z"
-
+//
 (new Date(regulatISOString).getTime()
     === new Date(localeISOString).getTime())
 // returns false</code></pre>
@@ -71,16 +71,23 @@ const regulatISOString = new Date(localeISOString).toISOString();
 </ul>
 <pre><code>let date;
 // Notice that my timezone is UTC +2 hours
-
+// ...
 date = new Date("2020-08-06T00:00:00.000Z");
 console.log(notation.yyyymmdd(date));  // returns "2020-08-06"
 date = new Date("2020-08-06T22:00:00.000Z");
 console.log(notation.yyyymmdd(date));  // returns "2020-08-07"
-
+// ...
 date = new Date("2020-08-06T00:00:00.000+0200");
 console.log(notation.yyyymmdd(date));  // returns "2020-08-06"
 date = new Date("2020-08-06T22:00:00.000+0200");
-console.log(notation.yyyymmdd(date));  // returns "2020-08-06"</code></pre>
+console.log(notation.yyyymmdd(date));  // returns "2020-08-06"
+// ...
+let oneDayMs = 1000*60*60*24; // 86400000
+let now = new Date();
+// Mon Aug 10 2020 22:26:33 GMT+0200 (Central European Summer Time)
+(utc0.startDateToMs(now) / oneDayMs) // 18484
+(utc0.startMonthToMs(now) / oneDayMs) // 18475
+(utc0.startYearToMs(now) / oneDayMs) // 18262</code></pre>
 <h3>notation.yyyymm01(date[,callback])</h3>
 <ul>
     <li><code>date</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">&lt;Date></a></li>
@@ -123,12 +130,12 @@ console.log(notation.yyyymmdd(date));  // returns "2020-08-06"</code></pre>
 </ul>
 <pre><code>new Date(utc0.startDateToMs(new Date()))
 // Mon Aug 10 2020 02:00:00 GMT+0200 (Central European Summer Time)
-
+//
 date = new Date("2020-08-06T00:00:00.000Z");
 console.log(utc0.startDateToMs(date)); // returns 1596672000000
 date = new Date("2020-08-06T22:00:00.000Z");
 console.log(utc0.startDateToMs(date)); // returns 1596758400000
-
+//
 date = new Date("2020-08-06T00:00:00.000+0200");
 console.log(utc0.startDateToMs(date)); // returns 1596672000000
 date = new Date("2020-08-06T22:00:00.000+0200");
