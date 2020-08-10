@@ -1,6 +1,18 @@
 # localeTimezoneDate
 JavaScript locale time zone Date module
 
+<h3>Table of Contents</h3>
+<ul>
+    <li><a href="https://github.com/BerendKemper/locale-timezone-date#localetimezonedatetoisostringdateoptionscallback">localeTimezoneDate.toISOString(date[,options][,callback])</a></li>
+    <li><a href="https://github.com/BerendKemper/locale-timezone-date#localetimezonedatetofalseisostringdateoptionscallback">localeTimezoneDate.toFalseISOString(date[,options][,callback])</a></li>
+    <li><a href="https://github.com/BerendKemper/locale-timezone-date#notationyyyymmdddatecallback">notation.yyyymmdd(date[,callback])</a></li>
+    <li><a href="https://github.com/BerendKemper/locale-timezone-date#notationyyyymm01datecallback">notation.yyyymm01(date[,callback])</a></li>
+    <li><a href="https://github.com/BerendKemper/locale-timezone-date#utc0startyeartomsdatecallback">utc0.startYearToMs(date[,callback])</a></li>
+    <li><a href="https://github.com/BerendKemper/locale-timezone-date#utc0startmonthtomsdatecallback">utc0.startMonthToMs(date[,callback])</a></li>
+    <li><a href="https://github.com/BerendKemper/locale-timezone-date#utc0startdatetomsdatecallback">utc0.startDateToMs(date[,callback])</a></li>
+    <li><a href="https://github.com/BerendKemper/locale-timezone-date#examples">Examples</a></li>
+</ul>
+
 <pre><code>npm i locale-timezone-date
 
 const { localeTimezoneDate, notation, utc0 } = require("locale-timezone-date");</code></pre>
