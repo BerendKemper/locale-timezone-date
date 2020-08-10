@@ -42,7 +42,7 @@ const notation_yyyymmdd = (date, callback = dt => dt) => callback(date.getFullYe
  * Start of the month Date String
  * @param {Date} date
  * @param {Function} callback (optional)
- * @returns {String} "yyyy-mm-01"
+ * @returns {String} "yyyy-mm"
  */
 const notation_yyyymm = (date, callback = dt => dt) => callback(date.getFullYear() + "-" + pad2(date.getMonth() + 1));
 /**
