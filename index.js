@@ -37,14 +37,14 @@ const localeTimezoneDate_toFalseISOString = (date, options = { ms: true }, callb
  * @param {Function} callback (optional)
  * @returns {String} "yyyy-mm-dd"
  */
-const notation_yyyymmdd = (date, callback = dt => dt) => callback(date.getFullYear() + "-" + pad2(date.getMonth() + 1) + "-" + pad2(date.getDate()));
+const dateNotation_yyyymmdd = (date, callback = dt => dt) => callback(date.getFullYear() + "-" + pad2(date.getMonth() + 1) + "-" + pad2(date.getDate()));
 /**
  * Start of the month Date String
  * @param {Date} date
  * @param {Function} callback (optional)
  * @returns {String} "yyyy-mm"
  */
-const notation_yyyymm = (date, callback = dt => dt) => callback(date.getFullYear() + "-" + pad2(date.getMonth() + 1));
+const dateNotation_yyyymm = (date, callback = dt => dt) => callback(date.getFullYear() + "-" + pad2(date.getMonth() + 1));
 /**
  * Calculate in UTC +0 the start-time of the date's year that have elapsed since the Unix epoch in milliseconds
  * @param {Date} date 
@@ -76,13 +76,13 @@ const localeTimezoneDate = Object.freeze({
     'toISOString': localeTimezoneDate_toISOString,
     'toFalseISOString': localeTimezoneDate_toFalseISOString
 });
-const notation = Object.freeze({
-    'yyyymmdd': notation_yyyymmdd,
-    'yyyymm': notation_yyyymm
+const dateNotation = Object.freeze({
+    'yyyymmdd': dateNotation_yyyymmdd,
+    'yyyymm': dateNotation_yyyymm
 });
 const utc0 = Object.freeze({
     'startYearToMs': utc0_startYearToMs,
     'startMonthToMs': utc0_startMonthToMs,
     'startDateToMs': utc0_startDateToMs
 });
-module.exports = Object.freeze({ localeTimezoneDate, notation, utc0 });
+module.exports = Object.freeze({ localeTimezoneDate, dateNotation, utc0 });
