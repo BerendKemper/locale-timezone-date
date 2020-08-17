@@ -44,20 +44,20 @@ const { localeTimezoneDate, dateNotation, utc0 } = require("locale-timezone-date
     <li>Returns: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type">&lt;string&gt;</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error">&lt;Error&gt;</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Undefined_type">&lt;undefined&gt;</a></li>
 </ul>
 <pre><code>const localeISOString = localeTimezoneDate.toISOString(new Date());
-// returns "2020-08-06T13:06:50.261+0200"
+console.log(localeISOString); // returns "2020-08-17T12:25:24.502+0200"
 // ...
-const localeFalseISOString = localeTimezoneDate.toFalseISOString(localeISOString);
-// returns "2020-08-06T13:06:50.261Z"
+const localeFalseISOString = localeTimezoneDate.toFalseISOString(new Date(localeISOString));
+console.log(localeFalseISOString); // returns "2020-08-17T12:25:24.502Z"
 // ...
 const regulatISOString = new Date(localeISOString).toISOString();
-// returns "2020-08-06T11:06:50.261Z"
+console.log(regulatISOString); // returns "2020-08-17T10:25:24.502Z"
 // ...
-(new Date(regulatISOString).getTime() 
-    === new Date(localeISOString).getTime())
+console.log(new Date(regulatISOString).getTime()
+    === new Date(localeISOString).getTime());
 // returns true
 // ...
-(new Date(regulatISOString).getTime()
-    === new Date(localeFalseISOString).getTime())
+console.log(new Date(regulatISOString).getTime()
+    === new Date(localeFalseISOString).getTime());
 // returns false</code></pre>
 <h3>dateNotation.yyyymmdd(date[,callback])</h3>
 <ul>
