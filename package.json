@@ -1,21 +1,22 @@
 {
-    "name": "locale-timezone-date",
-    "version": "3.0.4",
-    "description": "JavaScript local time zone Date module",
-    "main": "index.js",
-    "scripts": {},
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/BerendKemper/localTimeZoneDate.git"
-    },
-    "keywords": [],
-    "author": {
-        "name": "Berend Kemper",
-        "email": "berend_kemper@hotmail.com"
-    },
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/BerendKemper/localTimeZoneDate/issues"
-    },
-    "homepage": "https://github.com/BerendKemper/localTimeZoneDate#readme"
+	"name": "locale-timezone-date",
+	"version": "3.0.4",
+	"description": "JavaScript local time zone Date module",
+	"main": "index.js",
+	"scripts": {},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/BerendKemper/localTimeZoneDate.git"
+	},
+	"keywords": [],
+	"author": {
+		"name": "Berend Kemper",
+		"email": "berend_kemper@hotmail.com",
+		"npmjs": "https://www.npmjs.com/~burndkemper"
+	},
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/BerendKemper/localTimeZoneDate/issues"
+	},
+	"homepage": "https://github.com/BerendKemper/localTimeZoneDate#readme"
 }

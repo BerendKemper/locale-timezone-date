@@ -10,7 +10,7 @@ const getUTCOffset = date => { const hour = date.getTimezoneOffset() / -60; retu
  * @param {Function} callback (optional)
  * @returns {String} "yyyy-mm-ddThh:mm:ss[.ms]+hhmm"
  */
-const localeTimezoneDate_toISOString = (date, options = { ms: true }, callback = iso => iso) => { if (typeof options === "function") callback = options; return callback(pad2(date.getFullYear()) + "-" + pad2(date.getMonth() + 1) + "-" + pad2(date.getDate()) + "T" + pad2(date.getHours()) + ":" + pad2(date.getMinutes()) + ":" + pad2(date.getSeconds()) + (options.ms !== false ? "." + pad3(date.getMilliseconds()) : "") + getUTCOffset(date).hhmm); };
+const localeTimezoneDate_toISOString = (date, options = {}, callback = iso => iso) => { if (typeof options === "function") callback = options; return callback(pad2(date.getFullYear()) + "-" + pad2(date.getMonth() + 1) + "-" + pad2(date.getDate()) + "T" + pad2(date.getHours()) + ":" + pad2(date.getMinutes()) + ":" + pad2(date.getSeconds()) + (options.ms !== false ? "." + pad3(date.getMilliseconds()) : "") + getUTCOffset(date).hhmm); };
 /**
  * Locale time zone Date false ISO String
  * @param {Date} date 
@@ -19,7 +19,7 @@ const localeTimezoneDate_toISOString = (date, options = { ms: true }, callback =
  * @param {Function} callback (optional)
  * @returns {String} "yyyy-mm-ddThh:mm:ss[.ms]Z"
  */
-const localeTimezoneDate_toFalseISOString = (date, options = { ms: true }, callback = iso => iso) => { if (typeof options === "function") callback = options; return callback(pad2(date.getFullYear()) + "-" + pad2(date.getMonth() + 1) + "-" + pad2(date.getDate()) + "T" + pad2(date.getHours()) + ":" + pad2(date.getMinutes()) + ":" + pad2(date.getSeconds()) + (options.ms !== false ? "." + pad3(date.getMilliseconds()) : "") + "Z"); };
+const localeTimezoneDate_toFalseISOString = (date, options = {}, callback = iso => iso) => { if (typeof options === "function") callback = options; return callback(pad2(date.getFullYear()) + "-" + pad2(date.getMonth() + 1) + "-" + pad2(date.getDate()) + "T" + pad2(date.getHours()) + ":" + pad2(date.getMinutes()) + ":" + pad2(date.getSeconds()) + (options.ms !== false ? "." + pad3(date.getMilliseconds()) : "") + "Z"); };
 /**
  * Regular Date String
  * @param {Date} date
