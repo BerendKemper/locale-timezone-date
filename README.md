@@ -17,7 +17,8 @@ JavaScript locale time zone Date module
 
 const LocaleTimezoneDate = require("locale-timezone-date");</code></pre>
 
-<h3>localeTimezoneDate.toLocaleISOString([options]])</h3>
+<h2>Class: <code>LocaleTimezoneDate</code></h2>
+<h3>LocaleTimezoneDate.toLocaleISOString([options]])</h3>
 <ul>
 	<details>
 		<summary>
@@ -28,7 +29,7 @@ const LocaleTimezoneDate = require("locale-timezone-date");</code></pre>
 				<summary>
 					<code>ms</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type">&lt;Boolean&gt;</a> Default: <code>true</code>
 				</summary>
-				If <code>true</code> the returned locale date ISO string follows the notation <b>YYYY-MM-DDThh:mm:ss.ms+timezoneOffset</b> and if <code>false</code> it will follow the notation <b>YYYY-MM-DDThh:mm:ss+UTCOffset</b>.
+				If <code>true</code> the returned locale date ISO string follows the notation <b>YYYY-MM-DDThh:mm:ss.ms+UTCOffset</b> and if <code>false</code> it will follow the notation <b>YYYY-MM-DDThh:mm:ss+UTCOffset</b>.
 			</details>
     	</ul>
 	</details>
@@ -36,21 +37,30 @@ const LocaleTimezoneDate = require("locale-timezone-date");</code></pre>
 		<summary>
 			Returns: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type">&lt;string&gt;</a>
 		</summary>
-		This method <code>toLocaleISOString</code> returns a date ISO string similair to <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a>.<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString">ToISOString</a>. The locale date ISO string can be parsed into a correct JavaScript's native <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a> instance. The string follows the notation <b>YYYY-MM-DDThh:mm:ss[.ms]+UTCOffset</b>
+		This method <code>toLocaleISOString</code> returns a date ISO string similair to <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a>.<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString">ToISOString</a>. The returned date ISO string can be parsed into a correct JavaScript's native <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a> instance. The string follows the notation <b>YYYY-MM-DDThh:mm:ss[.ms]+UTCOffset</b>.
 	</details>
 </ul>
-<h3>localeTimezoneDate.toFalseISOString(date[,options][,callback])</h3>
+<h3>localeTimezoneDate.toFalsyLocaleISOString([options])</h3>
 <ul>
-    <li><code>date</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">&lt;Date></a></li>
-    <li><code>options</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">&lt;Object&gt;</a></li>
-    <ul>
-        <li><code>ms</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type">&lt;Boolean&gt;</a> Default: <code>true</code></li>
-    </ul>
-    <li><code>callback</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">&lt;Function&gt;</a></li>
-    <ul>
-        <li><code>iso</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type">&lt;string&gt;</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error">&lt;Error&gt;</a></li>
-    </ul>
-    <li>Returns: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type">&lt;string&gt;</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error">&lt;Error&gt;</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Undefined_type">&lt;undefined&gt;</a></li>
+	<details>
+		<summary>
+			<code>options</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">&lt;Object&gt;</a>
+		</summary>
+		<ul>
+			<details>
+				<summary>
+					<code>ms</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type">&lt;Boolean&gt;</a> Default: <code>true</code>
+				</summary>
+				If <code>true</code> the returned locale date ISO string follows the notation <b>YYYY-MM-DDThh:mm:ss.msZ</b> and if <code>false</code> it will follow the notation <b>YYYY-MM-DDThh:mm:ssZ</b>.
+			</details>
+		</ul>
+	</details>
+	<details>
+		<summary>
+			Returns: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type">&lt;string&gt;</a>
+		</summary>
+		This method <code>toFalsyLocaleISOString</code> returns a date ISO string similair to <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a>.<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString">ToISOString</a>. It returnes an incorrect date ISO string because the hour is set locale to the timezone of where the method is invoked but the string ends with a "Z" instead of a "+UTCOffset". A "Z" indicates the UTC offset is 0 and therefore is falsy. The string follows the notation <b>YYYY-MM-DDThh:mm:ss[.ms]Z</b>.
+	</details>
 </ul>
 <pre><code>const localeISOString = localeTimezoneDate.toISOString(new Date());
 console.log(localeISOString); // returns "2020-08-17T12:25:24.502+0200"
