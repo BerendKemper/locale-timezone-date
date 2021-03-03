@@ -151,77 +151,93 @@ All of <code>LocaleTimezoneDate</code> prototype methods from default return val
 
 ```javascript
 const LocaleTimezoneDate = require("locale-timezone-date");
-// ...
+//
+//
 let localeDate = new LocaleTimezoneDate();
-localeDate instanceof Date
+console.log(localeDate instanceof Date);
 true
-// ...
+//
+//
 console.log(localeDate.toLocaleISOString());
 "2021-03-03T11:19:32.333+0100"
-// ...
 console.log(new Date(localeDate.toLocaleISOString()).toISOString() === localeDate.toISOString());
 true
-// ...
+//
 console.log(localeDate.toFalsyLocaleISOString());
 "2021-03-03T11:19:32.333Z"
-// ...
 console.log(new Date(localeDate.toFalsyLocaleISOString()).toISOString() === localeDate.toISOString());
 false
-// ...
+//
+//
 const H00_Z = "2020-08-06T00:00:00.000Z";
 localeDate = new LocaleTimezoneDate(H00Z);
 console.log(localeDate.yyyymmdd());
 "2020-08-06"
 console.log(localeDate.getUTCOffset());
 { hhmm: '+0200', hour: 2 }
-// ...
+//
+//
 const H22_Z = "2020-08-06T22:00:00.000Z";
 localeDate = new LocaleTimezoneDate(H22Z);
 console.log(localeDate.yyyymmdd());
 "2020-08-07"
 console.log(localeDate.getUTCOffset());
 { hhmm: '+0200', hour: 2 }
-// ...
+//
+//
 const H00_UTC2 = "2020-08-06T00:00:00.000+0200";
 localeDate = new LocaleTimezoneDate(H00_UTC2);
 console.log(localeDate.yyyymmdd());
 "2020-08-06"
 console.log(localeDate.getUTCOffset());
 { hhmm: '+0200', hour: 2 }
-// ...
+//
+//
 const H22_UTC2 = "2020-08-06T22:00:00.000+0200";
 localeDate = new LocaleTimezoneDate(H22_UTC2);
 console.log(localeDate.yyyymmdd());
 "2020-08-06"
 console.log(localeDate.getUTCOffset());
 { hhmm: '+0200', hour: 2 }
-// ... Start of year
+//
+// Start of year
 localeDate = new LocaleTimezoneDate();
-console.log(new Date(localeDate.msStartOfYear()).toISOString());
+const msStartOfYearLocale = localeDate.msStartOfYear();
+console.log(new Date(msStartOfYearLocale).toISOString());
 "2020-12-31T23:00:00.000Z"
-console.log(new LocaleTimezoneDate(localeDate.msStartOfYear()).toLocaleISOString());
+console.log(new LocaleTimezoneDate(msStartOfYearLocale).toLocaleISOString());
 "2021-01-01T00:00:00.000+0100"
-console.log(new Date(localeDate.msStartOfYear({ locale: false })).toISOString());
+//
+const msStartOfYear = localeDate.msStartOfYear({ locale: false });
+console.log(new Date(msStartOfYear).toISOString());
 "2021-01-01T00:00:00.000Z"
-console.log(new LocaleTimezoneDate(localeDate.msStartOfYear({ locale: false })).toLocaleISOString());
+console.log(new LocaleTimezoneDate(msStartOfYear).toLocaleISOString());
 "2021-01-01T01:00:00.000+0100"
-// ... Start of month
-console.log(new Date(localeDate.msStartOfMonth()).toISOString());
+//
+// Start of month
+const msStartOfMonthLocale = localeDate.msStartOfMonth();
+console.log(new Date(msStartOfMonthLocale).toISOString());
 "2021-02-28T23:00:00.000Z"
-console.log(new LocaleTimezoneDate(localeDate.msStartOfMonth()).toLocaleISOString());
+console.log(new LocaleTimezoneDate(msStartOfMonthLocale).toLocaleISOString());
 "2021-03-01T00:00:00.000+0100"
-console.log(new Date(localeDate.msStartOfMonth({ locale: false })).toISOString());
+//
+const msStartOfMonth = localeDate.msStartOfMonth({ locale: false });
+console.log(new Date(msStartOfMonth).toISOString());
 "2021-03-01T00:00:00.000Z"
-console.log(new LocaleTimezoneDate(localeDate.msStartOfMonth({ locale: false })).toLocaleISOString());
+console.log(new LocaleTimezoneDate(msStartOfMonth).toLocaleISOString());
 "2021-03-01T01:00:00.000+0100"
-// ... Starts of day
-console.log(new Date(localeDate.msStartOfDate()).toISOString());
+//
+// Starts of day
+const msStartOfDateLocale = localeDate.msStartOfDate();
+console.log(new Date(msStartOfDateLocale).toISOString());
 "2021-03-02T23:00:00.000Z"
-console.log(new LocaleTimezoneDate(localeDate.msStartOfDate()).toLocaleISOString());
+console.log(new LocaleTimezoneDate(msStartOfDateLocale).toLocaleISOString());
 "2021-03-03T00:00:00.000+0100"
-console.log(new Date(localeDate.msStartOfDate({ locale: false })).toISOString());
+//
+const msStartOfDate = localeDate.msStartOfDate({ locale: false });
+console.log(new Date(msStartOfDate).toISOString());
 "2021-03-03T00:00:00.000Z"
-console.log(new LocaleTimezoneDate(localeDate.msStartOfDate({ locale: false })).toLocaleISOString());
+console.log(new LocaleTimezoneDate(msStartOfDate).toLocaleISOString());
 "2021-03-03T01:00:00.000+0100"
 ```
 
