@@ -18,7 +18,7 @@ JavaScript locale time zone Date module
 <br>
 const LocaleTimezoneDate = require("locale-timezone-date");</code></pre>
 <h2>Class: <code>LocaleTimezoneDate</code></h2>
-All of <code>LocaleTimezoneDate</code> prototype methods from default return values that are locale to the timezone of where the method has been invoked. This means that the UTC offset has been taken into account. In a certain range of the year the UTC offset changes with 1 hour, these methods provided in <code>LocaleTimezoneDate</code> take this hour shifting into acccount. There are examples below
+All of <code>LocaleTimezoneDate</code> prototype methods from default return values that are locale to the timezone of where the method has been invoked. This means that the UTC offset has been taken into account. In a certain range of the year the UTC offset changes with 1 hour, these methods provided in <code>LocaleTimezoneDate</code> take such hour shifting into acccount. There are examples below
 <h3>LocaleTimezoneDate.toLocaleISOString([options]])</h3>
 <ul>
 	<details>
