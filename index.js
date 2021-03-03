@@ -1,61 +1,64 @@
 "use strict";
 const pad2 = number => number < 10 ? "0" + number : number;
 const pad3 = number => number < 10 ? "00" + number : number < 100 ? "0" + number : number;
-const getUTCOffset = date => { const hour = date.getTimezoneOffset() / -60; return { hhmm: "+" + pad2(hour) + "00", hour }; };
-/**
- * Locale time zone Date ISO String
- * @param {Date} date 
- * @param {Object} options (optional) 
- * @param {Boolean} options.ms
- * @param {Function} callback (optional)
- * @returns {String} "yyyy-mm-ddThh:mm:ss[.ms]+hhmm"
- */
-const localeTimezoneDate_toISOString = (date, options = {}, callback = iso => iso) => { if (typeof options === "function") callback = options; return callback(pad2(date.getFullYear()) + "-" + pad2(date.getMonth() + 1) + "-" + pad2(date.getDate()) + "T" + pad2(date.getHours()) + ":" + pad2(date.getMinutes()) + ":" + pad2(date.getSeconds()) + (options.ms !== false ? "." + pad3(date.getMilliseconds()) : "") + getUTCOffset(date).hhmm); };
-/**
- * Locale time zone Date false ISO String
- * @param {Date} date 
- * @param {Object} options (optional) 
- * @param {Boolean} options.ms
- * @param {Function} callback (optional)
- * @returns {String} "yyyy-mm-ddThh:mm:ss[.ms]Z"
- */
-const localeTimezoneDate_toFalseISOString = (date, options = {}, callback = iso => iso) => { if (typeof options === "function") callback = options; return callback(pad2(date.getFullYear()) + "-" + pad2(date.getMonth() + 1) + "-" + pad2(date.getDate()) + "T" + pad2(date.getHours()) + ":" + pad2(date.getMinutes()) + ":" + pad2(date.getSeconds()) + (options.ms !== false ? "." + pad3(date.getMilliseconds()) : "") + "Z"); };
-/**
- * Regular Date String
- * @param {Date} date
- * @param {Function} callback (optional)
- * @returns {String} "yyyy-mm-dd"
- */
-const dateNotation_yyyymmdd = (date, callback = dt => dt) => callback(date.getFullYear() + "-" + pad2(date.getMonth() + 1) + "-" + pad2(date.getDate()));
-/**
- * Start of the month Date String
- * @param {Date} date
- * @param {Function} callback (optional)
- * @returns {String} "yyyy-mm"
- */
-const dateNotation_yyyymm = (date, callback = dt => dt) => callback(date.getFullYear() + "-" + pad2(date.getMonth() + 1));
-/**
- * Calculate in UTC +0 the start-time of the date's year that have elapsed since the Unix epoch in milliseconds
- * @param {Date} date 
- * @param {Function} callback (optional)
- * @returns {Number} Number of milliseconds
- */
-const utc0_startYearToMs = (date, callback = dt => dt) => { date.setMonth(0, 1); return callback(date.setHours(getUTCOffset(date).hour, 0, 0, 0)); };
-/**
- * Calculate in UTC +0 the start-time of the date's month that have elapsed since the Unix epoch in milliseconds
- * @param {Date} date 
- * @param {Function} callback (optional)
- * @returns {Number} Number of milliseconds
- */
-const utc0_startMonthToMs = (date, callback = dt => dt) => { date.setDate(1); return callback(date.setHours(getUTCOffset(date).hour, 0, 0, 0)); };
-/**
- * Calculate in UTC +0 the start-time of the date's day that have elapsed since the Unix epoch in milliseconds
- * @param {Date} date 
- * @param {Function} callback (optional)
- * @returns {Number} Number of milliseconds
- */
-const utc0_startDateToMs = (date, callback = dt => dt) => callback(date.setHours(getUTCOffset(date).hour, 0, 0, 0));
-const localeTimezoneDate = Object.freeze({ 'toISOString': localeTimezoneDate_toISOString, 'toFalseISOString': localeTimezoneDate_toFalseISOString });
-const dateNotation = Object.freeze({ 'yyyymmdd': dateNotation_yyyymmdd, 'yyyymm': dateNotation_yyyymm });
-const utc0 = Object.freeze({ 'startYearToMs': utc0_startYearToMs, 'startMonthToMs': utc0_startMonthToMs, 'startDateToMs': utc0_startDateToMs });
-module.exports = Object.freeze({ localeTimezoneDate, dateNotation, utc0 });
+class LocaleTimezoneDate extends Date {
+	/**
+	 * @returns {Object} {shhmm, hour}
+	 */
+	getUTCOffset() {
+		const hour = this.getTimezoneOffset() / -60;
+		return { hhmm: "+" + pad2(hour) + "00", hour };
+	};
+	/**Get a Date ISO String from your locale timezone.
+	 * @param {Object} options (optional) 
+	 * @param {Boolean} options.ms
+	 * @returns {String} "yyyy-mm-ddThh:mm:ss[.ms]+hhmm"
+	 */
+	toLocaleISOString(options = {}) {
+		return pad2(this.getFullYear()) + "-" + pad2(this.getMonth() + 1) + "-" + pad2(this.getDate()) + "T" + pad2(this.getHours()) + ":" + pad2(this.getMinutes()) + ":" + pad2(this.getSeconds()) + (options.ms !== false ? "." + pad3(this.getMilliseconds()) : "") + this.getUTCOffset().hhmm;
+	};
+	/**Get a Date ISO String from your locale timezone, it is falsy because it has a "Z" at the end of the string. A "Z" indicates the timezone UTC+0.
+	 * @param {Object} options (optional) 
+	 * @param {Boolean} options.ms
+	 * @returns {String} "yyyy-mm-ddThh:mm:ss[.ms]Z"
+	 */
+	toFalsyLocaleISOString(options = {}) {
+		return pad2(this.getFullYear()) + "-" + pad2(this.getMonth() + 1) + "-" + pad2(this.getDate()) + "T" + pad2(this.getHours()) + ":" + pad2(this.getMinutes()) + ":" + pad2(this.getSeconds()) + (options.ms !== false ? "." + pad3(this.getMilliseconds()) : "") + "Z";
+	};
+	/**Get 
+	 * @returns {String} "yyyy-mm-dd"
+	 */
+	yyyymmdd() {
+		return this.getFullYear() + "-" + pad2(this.getMonth() + 1) + "-" + pad2(this.getDate());
+	};
+	/**Start of the month Date String
+	 * @returns {String} "yyyy-mm"
+	 */
+	yyyymm() {
+		return this.getFullYear() + "-" + pad2(this.getMonth() + 1);
+	};
+	/**Calculate in UTC +0 the start-time of the date's year that have elapsed since the Unix epoch in milliseconds
+	 * @returns {Number} Number of milliseconds
+	 */
+	msStartOfYear() {
+		const _this = new LocaleTimezoneDate(this);
+		_this.setMonth(0, 1);
+		return _this.setHours(_this.getUTCOffset().hour, 0, 0, 0);
+	};
+	/**Calculate in UTC +0 the start-time of the date's month that have elapsed since the Unix epoch in milliseconds
+	 * @returns {Number} Number of milliseconds
+	 */
+	msStartOfMonth() {
+		const _this = new LocaleTimezoneDate(this);
+		_this.setDate(1);
+		return _this.setHours(_this.getUTCOffset().hour, 0, 0, 0);
+	};
+	/**Calculate in UTC +0 the start-time of the date's day that have elapsed since the Unix epoch in milliseconds
+	 * @returns {Number} Number of milliseconds
+	 */
+	msStartOfDate() {
+		const _this = new LocaleTimezoneDate(this);
+		return _this.setHours(_this.getUTCOffset().hour, 0, 0, 0);
+	};
+};
+module.exports = LocaleTimezoneDate;
