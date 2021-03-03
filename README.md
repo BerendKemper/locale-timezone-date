@@ -103,7 +103,7 @@ All of <code>LocaleTimezoneDate</code> prototype methods from default return val
 		The returned value from this method <code>msStartOfYear</code> is the time in milliseconds after Epoch of the start of the year from the <code>LocaleTimezoneDate</code> instance. The time in milliseconds after Epoch can be parsed into a correct JavaScript's native <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a> instance.
 	</details>
 </ul>
-<h3>LocaleTimezoneDate.startMonthToMs([options])</h3>
+<h3>LocaleTimezoneDate.msStartOfMonth([options])</h3>
 <ul>
 	<details>
 		<summary>
@@ -125,7 +125,7 @@ All of <code>LocaleTimezoneDate</code> prototype methods from default return val
 		The returned value from this method <code>startMonthToMs</code> is the time in milliseconds after Epoch of the start of the month from the <code>LocaleTimezoneDate</code> instance. The time in milliseconds after Epoch can be parsed into a correct JavaScript's native <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a> instance.
 	</details>
 </ul>
-<h3>LocaleTimezoneDate.startDateToMs([options])</h3>
+<h3>LocaleTimezoneDate.msStartOfDate([options])</h3>
 <ul>
 	<details>
 		<summary>
