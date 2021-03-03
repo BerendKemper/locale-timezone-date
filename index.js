@@ -40,25 +40,25 @@ class LocaleTimezoneDate extends Date {
 	/**Calculate in UTC +0 the start-time of the date's year that have elapsed since the Unix epoch in milliseconds
 	 * @returns {Number} Number of milliseconds
 	 */
-	msStartOfYear() {
+	msStartOfYear(options = {}) {
 		const _this = new LocaleTimezoneDate(this);
 		_this.setMonth(0, 1);
-		return _this.setHours(_this.getUTCOffset().hour, 0, 0, 0);
+		return _this.setHours(options.locale !== false ? 0 : _this.getUTCOffset().hour, 0, 0, 0);
 	};
 	/**Calculate in UTC +0 the start-time of the date's month that have elapsed since the Unix epoch in milliseconds
 	 * @returns {Number} Number of milliseconds
 	 */
-	msStartOfMonth() {
+	msStartOfMonth(options = {}) {
 		const _this = new LocaleTimezoneDate(this);
 		_this.setDate(1);
-		return _this.setHours(_this.getUTCOffset().hour, 0, 0, 0);
+		return _this.setHours(options.locale !== false ? 0 : _this.getUTCOffset().hour, 0, 0, 0);
 	};
 	/**Calculate in UTC +0 the start-time of the date's day that have elapsed since the Unix epoch in milliseconds
 	 * @returns {Number} Number of milliseconds
 	 */
-	msStartOfDate() {
+	msStartOfDate(options = {}) {
 		const _this = new LocaleTimezoneDate(this);
-		return _this.setHours(_this.getUTCOffset().hour, 0, 0, 0);
+		return _this.setHours(options.locale !== false ? 0 : _this.getUTCOffset().hour, 0, 0, 0);
 	};
 };
 module.exports = LocaleTimezoneDate;
