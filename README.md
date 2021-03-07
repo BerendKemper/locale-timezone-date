@@ -158,16 +158,26 @@ console.log(localeDate instanceof Date);
 true
 //
 //
+/////////////////////////////////////////////////
+// toLocaleISOString
+//
 console.log(localeDate.toLocaleISOString());
 "2021-03-03T11:19:32.333+0100"
 console.log(new Date(localeDate.toLocaleISOString()).toISOString() === localeDate.toISOString());
 true
+//
+//
+/////////////////////////////////////////////////
+// toFalsyLocaleISOString
 //
 console.log(localeDate.toFalsyLocaleISOString());
 "2021-03-03T11:19:32.333Z"
 console.log(new Date(localeDate.toFalsyLocaleISOString()).toISOString() === localeDate.toISOString());
 false
 //
+//
+/////////////////////////////////////////////////
+// yyyymmdd - TIME UTC0 - HOUR 0
 //
 const H00_Z = "2020-08-06T00:00:00.000Z";
 localeDate = new LocaleTimezoneDate(H00Z);
@@ -176,6 +186,7 @@ console.log(localeDate.yyyymmdd());
 console.log(localeDate.getUTCOffset());
 { hhmm: '+0200', hour: 2 }
 //
+// yyyymmdd - TIME UTC0 - HOUR 22
 //
 const H22_Z = "2020-08-06T22:00:00.000Z";
 localeDate = new LocaleTimezoneDate(H22Z);
@@ -185,6 +196,9 @@ console.log(localeDate.getUTCOffset());
 { hhmm: '+0200', hour: 2 }
 //
 //
+/////////////////////////////////////////////////
+// yyyymmdd - LOCALE TIME - HOUR 0
+//
 const H00_UTC2 = "2020-08-06T00:00:00.000+0200";
 localeDate = new LocaleTimezoneDate(H00_UTC2);
 console.log(localeDate.yyyymmdd());
@@ -192,6 +206,7 @@ console.log(localeDate.yyyymmdd());
 console.log(localeDate.getUTCOffset());
 { hhmm: '+0200', hour: 2 }
 //
+// yyyymmdd - LOCALE TIME - HOUR 22
 //
 const H22_UTC2 = "2020-08-06T22:00:00.000+0200";
 localeDate = new LocaleTimezoneDate(H22_UTC2);
@@ -200,7 +215,10 @@ console.log(localeDate.yyyymmdd());
 console.log(localeDate.getUTCOffset());
 { hhmm: '+0200', hour: 2 }
 //
-// Start of year
+//
+/////////////////////////////////////////////////
+// msStartOfYear - START OF THE YEAR - LOCALE
+//
 localeDate = new LocaleTimezoneDate();
 const msStartOfYearLocale = localeDate.msStartOfYear();
 console.log(new Date(msStartOfYearLocale).toISOString());
@@ -208,18 +226,25 @@ console.log(new Date(msStartOfYearLocale).toISOString());
 console.log(new LocaleTimezoneDate(msStartOfYearLocale).toLocaleISOString());
 "2021-01-01T00:00:00.000+0100"
 //
+// msStartOfYear - START OF THE YEAR - NOT LOCALE
+//
 const msStartOfYear = localeDate.msStartOfYear({ locale: false });
 console.log(new Date(msStartOfYear).toISOString());
 "2021-01-01T00:00:00.000Z"
 console.log(new LocaleTimezoneDate(msStartOfYear).toLocaleISOString());
 "2021-01-01T01:00:00.000+0100"
 //
-// Start of month
+//
+/////////////////////////////////////////////////
+// msStartOfMonth - START OF THE MONTH - LOCALE
+//
 const msStartOfMonthLocale = localeDate.msStartOfMonth();
 console.log(new Date(msStartOfMonthLocale).toISOString());
 "2021-02-28T23:00:00.000Z"
 console.log(new LocaleTimezoneDate(msStartOfMonthLocale).toLocaleISOString());
 "2021-03-01T00:00:00.000+0100"
+//
+// msStartOfMonth - START OF THE MONTH - NOT LOCALE
 //
 const msStartOfMonth = localeDate.msStartOfMonth({ locale: false });
 console.log(new Date(msStartOfMonth).toISOString());
@@ -227,12 +252,17 @@ console.log(new Date(msStartOfMonth).toISOString());
 console.log(new LocaleTimezoneDate(msStartOfMonth).toLocaleISOString());
 "2021-03-01T01:00:00.000+0100"
 //
-// Starts of day
+//
+/////////////////////////////////////////////////
+// msStartOfDate - START OF THE DAY - LOCALE
+//
 const msStartOfDateLocale = localeDate.msStartOfDate();
 console.log(new Date(msStartOfDateLocale).toISOString());
 "2021-03-02T23:00:00.000Z"
 console.log(new LocaleTimezoneDate(msStartOfDateLocale).toLocaleISOString());
 "2021-03-03T00:00:00.000+0100"
+//
+// msStartOfDate - START OF THE DAY - NOT LOCALE
 //
 const msStartOfDate = localeDate.msStartOfDate({ locale: false });
 console.log(new Date(msStartOfDate).toISOString());
@@ -240,6 +270,3 @@ console.log(new Date(msStartOfDate).toISOString());
 console.log(new LocaleTimezoneDate(msStartOfDate).toLocaleISOString());
 "2021-03-03T01:00:00.000+0100"
 ```
-
-
-
