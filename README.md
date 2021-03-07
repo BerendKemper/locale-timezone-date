@@ -19,7 +19,7 @@ JavaScript locale time zone Date module
 const LocaleTimezoneDate = require("locale-timezone-date");</code></pre>
 <h2>Class: <code>LocaleTimezoneDate</code></h2>
 All of <code>LocaleTimezoneDate</code> prototype methods from default return values that are locale to the timezone of where the method has been invoked. This means that the UTC offset has been taken into account. In a certain range of the year the UTC offset changes with 1 hour, these methods provided in <code>LocaleTimezoneDate</code> take such hour shifting into account. There are examples below
-<h3>LocaleTimezoneDate.toLocaleISOString([options]])</h3>
+<h3>localeTimezoneDate.toLocaleISOString([options]])</h3>
 <ul>
 	<details>
 		<summary>
@@ -41,7 +41,7 @@ All of <code>LocaleTimezoneDate</code> prototype methods from default return val
 		The returned value from this method <code>toLocaleISOString</code> is a date ISO string similair to the returned value from <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a>.<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString">ToISOString</a>. The returned value from this method <code>toLocaleISOString</code> can be parsed by JavaScript's native <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a> class. The string follows the notation <b>YYYY-MM-DDThh:mm:ss[.ms]+UTCOffset</b>.
 	</details>
 </ul>
-<h3>LocaleTimezoneDate.toFalsyLocaleISOString([options])</h3>
+<h3>localeTimezoneDate.toFalsyLocaleISOString([options])</h3>
 <ul>
 	<details>
 		<summary>
@@ -63,7 +63,7 @@ All of <code>LocaleTimezoneDate</code> prototype methods from default return val
 		The returned value from this method <code>toFalsyLocaleISOString</code> is a date ISO string similair to the returned value from <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a>.<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString">ToISOString</a>. However, it returnes an incorrect date ISO string because the string ends with a "Z" instead of a "+UTCOffset". A "Z" indicates the timezone offset is set to UTC0 but the string is locale and therefore it returns an incorrect value. The string follows the notation <b>YYYY-MM-DDThh:mm:ss[.ms]Z</b>.
 	</details>
 </ul>
-<h3>LocaleTimezoneDate.yyyymmdd()</h3>
+<h3>localeTimezoneDate.yyyymmdd()</h3>
 <ul>
 	<details>
 		<summary>
@@ -72,7 +72,7 @@ All of <code>LocaleTimezoneDate</code> prototype methods from default return val
 		The returned value from this method <code>yyyymmdd</code> is a string following the notation <b>YYYY-MM-DD</b>.
 	</details>
 </ul>
-<h3>LocaleTimezoneDate.yyyymm()</h3>
+<h3>localeTimezoneDate.yyyymm()</h3>
 <ul>
 	<details>
 		<summary>
@@ -81,7 +81,7 @@ All of <code>LocaleTimezoneDate</code> prototype methods from default return val
 		The returned value from this method <code>yyyymm</code> is a string following the notation <b>YYYY-MM</b>.
 	</details>
 </ul>
-<h3>LocaleTimezoneDate.msStartOfYear([options])</h3>
+<h3>localeTimezoneDate.msStartOfYear([options])</h3>
 <ul>
 	<details>
 		<summary>
@@ -100,10 +100,10 @@ All of <code>LocaleTimezoneDate</code> prototype methods from default return val
 		<summary>
 			Returns: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type">&lt;integer&gt;</a>
 		</summary>
-		The returned value from this method <code>msStartOfYear</code> is the time in milliseconds after Epoch of the start of the year from the <code>LocaleTimezoneDate</code> instance. The time in milliseconds after Epoch can be parsed into a correct JavaScript's native <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a> instance.
+		The returned value from this method <code>msStartOfYear</code> is the time in milliseconds after Epoch of the start of the year from  <code>localeTimezoneDate</code>. The time in milliseconds after Epoch can be parsed into a correct JavaScript's native <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a> instance.
 	</details>
 </ul>
-<h3>LocaleTimezoneDate.msStartOfMonth([options])</h3>
+<h3>localeTimezoneDate.msStartOfMonth([options])</h3>
 <ul>
 	<details>
 		<summary>
@@ -122,10 +122,10 @@ All of <code>LocaleTimezoneDate</code> prototype methods from default return val
 		<summary>
 			Returns: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type">&lt;integer&gt;</a>
 		</summary>
-		The returned value from this method <code>startMonthToMs</code> is the time in milliseconds after Epoch of the start of the month from the <code>LocaleTimezoneDate</code> instance. The time in milliseconds after Epoch can be parsed into a correct JavaScript's native <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a> instance.
+		The returned value from this method <code>startMonthToMs</code> is the time in milliseconds after Epoch of the start of the month from  <code>localeTimezoneDate</code>. The time in milliseconds after Epoch can be parsed into a correct JavaScript's native <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a> instance.
 	</details>
 </ul>
-<h3>LocaleTimezoneDate.msStartOfDate([options])</h3>
+<h3>localeTimezoneDate.msStartOfDate([options])</h3>
 <ul>
 	<details>
 		<summary>
@@ -144,7 +144,7 @@ All of <code>LocaleTimezoneDate</code> prototype methods from default return val
 		<summary>
 			Returns: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type">&lt;integer&gt;</a>
 		</summary>
-		The returned value from this method <code>startDateToMs</code> is the time in milliseconds after Epoch of the start of the day from the <code>LocaleTimezoneDate</code> instance. The time in milliseconds after Epoch can be parsed into a correct JavaScript's native <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a> instance.
+		The returned value from this method <code>startDateToMs</code> is the time in milliseconds after Epoch of the start of the day from  <code>localeTimezoneDate</code>. The time in milliseconds after Epoch can be parsed into a correct JavaScript's native <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a> instance.
 	</details>
 </ul>
 <h3>Examples</h3>
