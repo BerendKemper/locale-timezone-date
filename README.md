@@ -13,10 +13,11 @@ JavaScript locale time zone Date module
     <li><a href="https://github.com/BerendKemper/locale-timezone-date#localetimezonedatemsstartofdateoptions">LocaleTimezoneDate.msStartOfDate([options])</a></li>
     <li><a href="https://github.com/BerendKemper/locale-timezone-date#examples">Examples</a></li>
 </ul>
+<pre><code>npm i locale-timezone-date</code></pre>
 
-<pre><code>npm i locale-timezone-date
-<br>
-const LocaleTimezoneDate = require("locale-timezone-date");</code></pre>
+```javascript
+const LocaleTimezoneDate = require("locale-timezone-date");
+```
 <h2>Class: <code>LocaleTimezoneDate</code></h2>
 All of <code>LocaleTimezoneDate</code> prototype methods from default return values that are locale to the timezone of where the method has been invoked. This means that the UTC offset has been taken into account. In a certain range of the year the UTC offset changes with 1 hour, these methods provided in <code>LocaleTimezoneDate</code> take such hour shifting into account. There are examples below
 <h3>localeTimezoneDate.toLocaleISOString([options]])</h3>
