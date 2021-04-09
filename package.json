@@ -1,6 +1,6 @@
 {
 	"name": "locale-timezone-date",
-	"version": "4.0.0",
+	"version": "5.0.0",
 	"description": "JavaScript local time zone Date module",
 	"main": "index.js",
 	"scripts": {},

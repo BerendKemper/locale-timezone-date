@@ -37,28 +37,46 @@ class LocaleTimezoneDate extends Date {
 	yyyymm() {
 		return this.getFullYear() + "-" + pad2(this.getMonth() + 1);
 	};
-	/**Calculate in UTC +0 the start-time of the date's year that have elapsed since the Unix epoch in milliseconds
+	/**Calculate in UTC +0 the start-time of the date's year that have elapsed since the
+	 * Unix epoch in milliseconds. Return an instance of LocaleTimezoneDate if "ms" is
+	 * false.
+	 * @param {Object} options
+	 * @param {boolean} options.ms
+	 * @param {boolean} options.locale
 	 * @returns {Number} Number of milliseconds
 	 */
-	msStartOfYear(options = {}) {
+	startOfYear(options = {}) {
 		const _this = new LocaleTimezoneDate(this);
 		_this.setMonth(0, 1);
-		return _this.setHours(options.locale !== false ? 0 : _this.getUTCOffset().hour, 0, 0, 0);
+		const ms = _this.setHours(options.locale === false ? _this.getUTCOffset().hour : 0, 0, 0, 0);
+		return options.ms === false ? _this : ms;
 	};
-	/**Calculate in UTC +0 the start-time of the date's month that have elapsed since the Unix epoch in milliseconds
+	/**Calculate in UTC +0 the start-time of the date's month that have elapsed since
+	 * the Unix epoch in milliseconds. Return an instance of LocaleTimezoneDate if
+	 * "ms" is false.
+	 * @param {Object} options
+	 * @param {boolean} options.ms
+	 * @param {boolean} options.locale
 	 * @returns {Number} Number of milliseconds
 	 */
-	msStartOfMonth(options = {}) {
+	startOfMonth(options = {}) {
 		const _this = new LocaleTimezoneDate(this);
 		_this.setDate(1);
-		return _this.setHours(options.locale !== false ? 0 : _this.getUTCOffset().hour, 0, 0, 0);
+		const ms = _this.setHours(options.locale === false ? _this.getUTCOffset().hour : 0, 0, 0, 0);
+		return options.ms === false ? _this : ms;
 	};
-	/**Calculate in UTC +0 the start-time of the date's day that have elapsed since the Unix epoch in milliseconds
+	/**Calculate in UTC +0 the start-time of the date's day that have elapsed since the
+	 * Unix epoch in milliseconds. Return an instance of LocaleTimezoneDate if "ms" is
+	 * false.
+	 * @param {Object} options
+	 * @param {boolean} options.ms
+	 * @param {boolean} options.locale
 	 * @returns {Number} Number of milliseconds
 	 */
-	msStartOfDate(options = {}) {
+	startOfDate(options = {}) {
 		const _this = new LocaleTimezoneDate(this);
-		return _this.setHours(options.locale !== false ? 0 : _this.getUTCOffset().hour, 0, 0, 0);
+		const ms = _this.setHours(options.locale === false ? _this.getUTCOffset().hour : 0, 0, 0, 0);
+		return options.ms === false ? _this : ms;
 	};
 };
 module.exports = LocaleTimezoneDate;
