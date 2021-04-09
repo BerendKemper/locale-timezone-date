@@ -1,18 +1,6 @@
 # localeTimezoneDate
 JavaScript locale time zone Date module
 <br>
-<h3>Table of Contents</h3>
-<ul>
-    <li><a href="https://github.com/BerendKemper/locale-timezone-date#localetimezonedate">LocaleTimezoneDate</a></li>
-    <li><a href="https://github.com/BerendKemper/locale-timezone-date#localetimezonedatetolocaleisostringoptions">LocaleTimezoneDate.toLocaleISOString([options]])</a></li>
-    <li><a href="https://github.com/BerendKemper/locale-timezone-date#localetimezonedatetofalsylocaleisostringoptions">LocaleTimezoneDate.toFalsyLocaleISOString([options])</a></li>
-    <li><a href="https://github.com/BerendKemper/locale-timezone-date#localetimezonedateyyyymmdd">LocaleTimezoneDate.yyyymmdd()</a></li>
-    <li><a href="https://github.com/BerendKemper/locale-timezone-date#localetimezonedateyyyymm">LocaleTimezoneDate.yyyymm()</a></li>
-    <li><a href="https://github.com/BerendKemper/locale-timezone-date#localetimezonedatestartofyearoptions">LocaleTimezoneDate.startOfYear([options])</a></li>
-    <li><a href="https://github.com/BerendKemper/locale-timezone-date#localetimezonedatestartofmonthoptions">LocaleTimezoneDate.startOfMonth([options])</a></li>
-    <li><a href="https://github.com/BerendKemper/locale-timezone-date#localetimezonedatestartofdateoptions">LocaleTimezoneDate.startOfDate([options])</a></li>
-    <li><a href="https://github.com/BerendKemper/locale-timezone-date#examples">Examples</a></li>
-</ul>
 <pre><code>npm i locale-timezone-date</code></pre>
 
 ```javascript
