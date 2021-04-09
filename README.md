@@ -8,9 +8,9 @@ JavaScript locale time zone Date module
     <li><a href="https://github.com/BerendKemper/locale-timezone-date#localetimezonedatetofalsylocaleisostringoptions">LocaleTimezoneDate.toFalsyLocaleISOString([options])</a></li>
     <li><a href="https://github.com/BerendKemper/locale-timezone-date#localetimezonedateyyyymmdd">LocaleTimezoneDate.yyyymmdd()</a></li>
     <li><a href="https://github.com/BerendKemper/locale-timezone-date#localetimezonedateyyyymm">LocaleTimezoneDate.yyyymm()</a></li>
-    <li><a href="https://github.com/BerendKemper/locale-timezone-date#localetimezonedatemsstartofyearoptions">LocaleTimezoneDate.msStartOfYear([options])</a></li>
-    <li><a href="https://github.com/BerendKemper/locale-timezone-date#localetimezonedatemsstartofmonthoptions">LocaleTimezoneDate.msStartOfMonth([options])</a></li>
-    <li><a href="https://github.com/BerendKemper/locale-timezone-date#localetimezonedatemsstartofdateoptions">LocaleTimezoneDate.msStartOfDate([options])</a></li>
+    <li><a href="https://github.com/BerendKemper/locale-timezone-date#localetimezonedatestartofyearoptions">LocaleTimezoneDate.startOfYear([options])</a></li>
+    <li><a href="https://github.com/BerendKemper/locale-timezone-date#localetimezonedatestartofmonthoptions">LocaleTimezoneDate.startOfMonth([options])</a></li>
+    <li><a href="https://github.com/BerendKemper/locale-timezone-date#localetimezonedatestartofdateoptions">LocaleTimezoneDate.startOfDate([options])</a></li>
     <li><a href="https://github.com/BerendKemper/locale-timezone-date#examples">Examples</a></li>
 </ul>
 <pre><code>npm i locale-timezone-date</code></pre>
@@ -82,7 +82,7 @@ All of <code>LocaleTimezoneDate</code> prototype methods from default return val
 		The returned value from this method <code>yyyymm</code> is a string following the notation <b>YYYY-MM</b>.
 	</details>
 </ul>
-<h3>localeTimezoneDate.msStartOfYear([options])</h3>
+<h3>localeTimezoneDate.startOfYear([options])</h3>
 <ul>
 	<details>
 		<summary>
@@ -93,18 +93,24 @@ All of <code>LocaleTimezoneDate</code> prototype methods from default return val
 				<summary>
 					<code>locale</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type">&lt;Boolean&gt;</a> Default: <code>true</code>
 				</summary>
-				If <code>true</code> the returned value from this method <code>msStartOfYear</code> is set to locale timezone and if <code>false</code> the returned value is set to UTC0.
+				If <code>locale</code> is set to <code>false</code> the returned value is UTC0, otherwise is locale to the timezone.
+			</details>
+			<details>
+				<summary>
+					<code>ms</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type">&lt;Boolean&gt;</a> Default: <code>true</code>
+				</summary>
+				If <code>ms</code> is set to <code>false</code> the returned value is a <code>localeTimezoneDate</code>, otherwise in milliseconds after Unix Epoch.
 			</details>
 		</ul>
 	</details>
 	<details>
 		<summary>
-			Returns: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type">&lt;integer&gt;</a>
+			Returns: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type">&lt;integer&gt;</a> | &lt;localeTimezoneDate&gt;
 		</summary>
-		The returned value from this method <code>msStartOfYear</code> is the time in milliseconds after Epoch of the start of the year from  <code>localeTimezoneDate</code>. The time in milliseconds after Epoch can be parsed into a correct JavaScript's native <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a> instance.
+		Default this method behaves with <code>locale</code> <code>true</code> and <code>ms</code> <code>true</code>.
 	</details>
 </ul>
-<h3>localeTimezoneDate.msStartOfMonth([options])</h3>
+<h3>localeTimezoneDate.startOfMonth([options])</h3>
 <ul>
 	<details>
 		<summary>
@@ -115,18 +121,24 @@ All of <code>LocaleTimezoneDate</code> prototype methods from default return val
 				<summary>
 					<code>locale</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type">&lt;Boolean&gt;</a> Default: <code>true</code>
 				</summary>
-				If <code>true</code> the returned value of this method <code>startMonthToMs</code> is set to locale timezone and if <code>false</code> the returned value is set to UTC0.
+				If <code>locale</code> is set to <code>false</code> the returned value is UTC0, otherwise is locale to the timezone.
+			</details>
+			<details>
+				<summary>
+					<code>ms</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type">&lt;Boolean&gt;</a> Default: <code>true</code>
+				</summary>
+				If <code>ms</code> is set to <code>false</code> the returned value is a <code>localeTimezoneDate</code>, otherwise in milliseconds after Unix Epoch.
 			</details>
 		</ul>
 	</details>
 	<details>
 		<summary>
-			Returns: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type">&lt;integer&gt;</a>
+			Returns: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type">&lt;integer&gt;</a> | &lt;localeTimezoneDate&gt;
 		</summary>
-		The returned value from this method <code>startMonthToMs</code> is the time in milliseconds after Epoch of the start of the month from  <code>localeTimezoneDate</code>. The time in milliseconds after Epoch can be parsed into a correct JavaScript's native <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a> instance.
+		Default this method behaves with <code>locale</code> <code>true</code> and <code>ms</code> <code>true</code>.
 	</details>
 </ul>
-<h3>localeTimezoneDate.msStartOfDate([options])</h3>
+<h3>localeTimezoneDate.startOfDate([options])</h3>
 <ul>
 	<details>
 		<summary>
@@ -137,15 +149,21 @@ All of <code>LocaleTimezoneDate</code> prototype methods from default return val
 				<summary>
 					<code>locale</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type">&lt;Boolean&gt;</a> Default: <code>true</code>
 				</summary>
-				If <code>true</code> the returned value of this method <code>startDateToMs</code> is set to locale timezone and if <code>false</code> the returned value is set to UTC0.
+				If <code>locale</code> is set to <code>false</code> the returned value is UTC0, otherwise is locale to the timezone.
+			</details>
+			<details>
+				<summary>
+					<code>ms</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type">&lt;Boolean&gt;</a> Default: <code>true</code>
+				</summary>
+				If <code>ms</code> is set to <code>false</code> the returned value is a <code>localeTimezoneDate</code>, otherwise in milliseconds after Unix Epoch.
 			</details>
 		</ul>
 	</details>
 	<details>
 		<summary>
-			Returns: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type">&lt;integer&gt;</a>
+			Returns: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type">&lt;integer&gt;</a> | &lt;localeTimezoneDate&gt;
 		</summary>
-		The returned value from this method <code>startDateToMs</code> is the time in milliseconds after Epoch of the start of the day from  <code>localeTimezoneDate</code>. The time in milliseconds after Epoch can be parsed into a correct JavaScript's native <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a> instance.
+		Default this method behaves with <code>locale</code> <code>true</code> and <code>ms</code> <code>true</code>.
 	</details>
 </ul>
 <h3>Examples</h3>
@@ -156,45 +174,45 @@ const LocaleTimezoneDate = require("locale-timezone-date");
 //
 let localeDate = new LocaleTimezoneDate();
 console.log(localeDate instanceof Date);
-true
+// true
 //
 //
 /////////////////////////////////////////////////
 // toLocaleISOString
 //
 console.log(localeDate.toLocaleISOString());
-"2021-03-03T11:19:32.333+0100"
+// "2021-04-09T09:15:43.062+0200"
 console.log(new Date(localeDate.toLocaleISOString()).toISOString() === localeDate.toISOString());
-true
+// true
 //
 //
 /////////////////////////////////////////////////
 // toFalsyLocaleISOString
 //
 console.log(localeDate.toFalsyLocaleISOString());
-"2021-03-03T11:19:32.333Z"
+// "2021-04-09T09:15:43.062Z"
 console.log(new Date(localeDate.toFalsyLocaleISOString()).toISOString() === localeDate.toISOString());
-false
+// false
 //
 //
 /////////////////////////////////////////////////
 // yyyymmdd - TIME UTC0 - HOUR 0
 //
 const H00_Z = "2020-08-06T00:00:00.000Z";
-localeDate = new LocaleTimezoneDate(H00Z);
+localeDate = new LocaleTimezoneDate(H00_Z);
 console.log(localeDate.yyyymmdd());
-"2020-08-06"
+// "2020-08-06"
 console.log(localeDate.getUTCOffset());
-{ hhmm: '+0200', hour: 2 }
+// { hhmm: '+0200', hour: 2 }
 //
 // yyyymmdd - TIME UTC0 - HOUR 22
 //
 const H22_Z = "2020-08-06T22:00:00.000Z";
-localeDate = new LocaleTimezoneDate(H22Z);
+localeDate = new LocaleTimezoneDate(H22_Z);
 console.log(localeDate.yyyymmdd());
-"2020-08-07"
+// "2020-08-07"
 console.log(localeDate.getUTCOffset());
-{ hhmm: '+0200', hour: 2 }
+// { hhmm: '+0200', hour: 2 }
 //
 //
 /////////////////////////////////////////////////
@@ -203,71 +221,71 @@ console.log(localeDate.getUTCOffset());
 const H00_UTC2 = "2020-08-06T00:00:00.000+0200";
 localeDate = new LocaleTimezoneDate(H00_UTC2);
 console.log(localeDate.yyyymmdd());
-"2020-08-06"
+// "2020-08-06"
 console.log(localeDate.getUTCOffset());
-{ hhmm: '+0200', hour: 2 }
+// { hhmm: '+0200', hour: 2 }
 //
 // yyyymmdd - LOCALE TIME - HOUR 22
 //
 const H22_UTC2 = "2020-08-06T22:00:00.000+0200";
 localeDate = new LocaleTimezoneDate(H22_UTC2);
 console.log(localeDate.yyyymmdd());
-"2020-08-06"
+// "2020-08-06"
 console.log(localeDate.getUTCOffset());
-{ hhmm: '+0200', hour: 2 }
+// { hhmm: '+0200', hour: 2 }
 //
 //
 /////////////////////////////////////////////////
 // msStartOfYear - START OF THE YEAR - LOCALE
 //
 localeDate = new LocaleTimezoneDate();
-const msStartOfYearLocale = localeDate.msStartOfYear();
-console.log(new Date(msStartOfYearLocale).toISOString());
-"2020-12-31T23:00:00.000Z"
-console.log(new LocaleTimezoneDate(msStartOfYearLocale).toLocaleISOString());
-"2021-01-01T00:00:00.000+0100"
+const startOfYearLocale = localeDate.startOfYear({ ms: false });
+console.log(startOfYearLocale.toISOString());
+// "2020-12-31T23:00:00.000Z"
+console.log(startOfYearLocale.toLocaleISOString());
+// "2021-01-01T00:00:00.000+0100"
 //
 // msStartOfYear - START OF THE YEAR - NOT LOCALE
 //
-const msStartOfYear = localeDate.msStartOfYear({ locale: false });
-console.log(new Date(msStartOfYear).toISOString());
-"2021-01-01T00:00:00.000Z"
-console.log(new LocaleTimezoneDate(msStartOfYear).toLocaleISOString());
-"2021-01-01T01:00:00.000+0100"
+const startOfYear = localeDate.startOfYear({ ms: false, locale: false });
+console.log(startOfYear.toISOString());
+// "2021-01-01T00:00:00.000Z"
+console.log(startOfYear.toLocaleISOString());
+// "2021-01-01T01:00:00.000+0100"
 //
 //
 /////////////////////////////////////////////////
 // msStartOfMonth - START OF THE MONTH - LOCALE
 //
-const msStartOfMonthLocale = localeDate.msStartOfMonth();
-console.log(new Date(msStartOfMonthLocale).toISOString());
-"2021-02-28T23:00:00.000Z"
-console.log(new LocaleTimezoneDate(msStartOfMonthLocale).toLocaleISOString());
-"2021-03-01T00:00:00.000+0100"
+const startOfMonthLocale = localeDate.startOfMonth({ ms: false });
+console.log(startOfMonthLocale.toISOString());
+// "2021-03-31T22:00:00.000Z"
+console.log(startOfMonthLocale.toLocaleISOString());
+// "2021-04-01T00:00:00.000+0200"
 //
 // msStartOfMonth - START OF THE MONTH - NOT LOCALE
 //
-const msStartOfMonth = localeDate.msStartOfMonth({ locale: false });
-console.log(new Date(msStartOfMonth).toISOString());
-"2021-03-01T00:00:00.000Z"
-console.log(new LocaleTimezoneDate(msStartOfMonth).toLocaleISOString());
-"2021-03-01T01:00:00.000+0100"
+const startOfMonth = localeDate.startOfMonth({ ms: false, locale: false });
+console.log(startOfMonth.toISOString());
+// "2021-04-01T00:00:00.000Z"
+console.log(startOfMonth.toLocaleISOString());
+// "2021-04-01T02:00:00.000+0200"
 //
 //
 /////////////////////////////////////////////////
 // msStartOfDate - START OF THE DAY - LOCALE
 //
-const msStartOfDateLocale = localeDate.msStartOfDate();
-console.log(new Date(msStartOfDateLocale).toISOString());
-"2021-03-02T23:00:00.000Z"
-console.log(new LocaleTimezoneDate(msStartOfDateLocale).toLocaleISOString());
-"2021-03-03T00:00:00.000+0100"
+const startOfDateLocale = localeDate.startOfDate({ ms: false });
+console.log(startOfDateLocale.toISOString());
+// "2021-04-08T22:00:00.000Z"
+console.log(startOfDateLocale.toLocaleISOString());
+// "2021-04-09T00:00:00.000+0200"
 //
 // msStartOfDate - START OF THE DAY - NOT LOCALE
 //
-const msStartOfDate = localeDate.msStartOfDate({ locale: false });
-console.log(new Date(msStartOfDate).toISOString());
-"2021-03-03T00:00:00.000Z"
-console.log(new LocaleTimezoneDate(msStartOfDate).toLocaleISOString());
-"2021-03-03T01:00:00.000+0100"
+const startOfDate = localeDate.startOfDate({ ms: false, locale: false });
+console.log(startOfDate.toISOString());
+// "2021-04-09T00:00:00.000Z"
+console.log(startOfDate.toLocaleISOString());
+// "2021-04-09T02:00:00.000+0200"
 ```
