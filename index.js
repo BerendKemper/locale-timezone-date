@@ -1,52 +1,48 @@
 "use strict";
-const pad2 = number => number < 10 ? "0" + number : number;
-const pad3 = number => number < 10 ? "00" + number : number < 100 ? "0" + number : number;
 class LocaleTimezoneDate extends Date {
-    /**@returns {{hhmm:string hour:number}}*/
-    getUTCOffset() {
-        const hour = this.getTimezoneOffset() / -60;
-        return { hhmm: "+" + pad2(hour) + "00", hour };
-    };
-    /**Get a Date ISO String from your locale timezone.
-     * @param {{ms:boolean}} options (optional) @returns {String} "yyyy-mm-ddThh:mm:ss[.ms]+hhmm"*/
-    toLocaleISOString(options = {}) {
-        return pad2(this.getFullYear()) + "-" + pad2(this.getMonth() + 1) + "-" + pad2(this.getDate()) + "T" + pad2(this.getHours()) + ":" + pad2(this.getMinutes()) + ":" + pad2(this.getSeconds()) + (options?.ms !== false ? "." + pad3(this.getMilliseconds()) : "") + this.getUTCOffset().hhmm;
-    };
-    /**Get a Date ISO String from your locale timezone, it is falsy because it has a "Z" at the end of the string. A "Z" indicates the timezone UTC+0.
-     * @param {{ms:boolean}} options (optional) @returns {String} "yyyy-mm-ddThh:mm:ss[.ms]Z"*/
-    toFalsyLocaleISOString(options = {}) {
-        return pad2(this.getFullYear()) + "-" + pad2(this.getMonth() + 1) + "-" + pad2(this.getDate()) + "T" + pad2(this.getHours()) + ":" + pad2(this.getMinutes()) + ":" + pad2(this.getSeconds()) + (options?.ms !== false ? "." + pad3(this.getMilliseconds()) : "") + "Z";
-    };
+    get hhmmssms() {
+        return `${this.hhmmss}.${String(this.getUTCMilliseconds()).padStart(3, 0)}`;
+    }
+    get hhmmss() {
+        return `${String(this.getHours()).padStart(2, 0)}:${String(this.getMinutes()).padStart(2, 0)}:${String(this.getSeconds()).padStart(2, 0)}`;
+    }
     /**@returns {String} "yyyy-mm-dd"*/
-    yyyymmdd() {
-        return this.getFullYear() + "-" + pad2(this.getMonth() + 1) + "-" + pad2(this.getDate());
+    get yyyymmdd() {
+        return `${this.yyyymm}-${String(this.getDate()).padStart(2, 0)}`;
     };
     /**@returns {String} "yyyy-mm"*/
-    yyyymm() {
-        return this.getFullYear() + "-" + pad2(this.getMonth() + 1);
+    get yyyymm() {
+        return `${String(this.getFullYear()).padStart(4, 0)}-${String(this.getMonth() + 1).padStart(2, 0)}`;
     };
-    /**Calculate in UTC +0 the start-time of the date's year that have elapsed since the Unix epoch in milliseconds. Return an instance of LocaleTimezoneDate if "ms" is false.
-     * @param {{ms:boolean locale:boolean}} options @returns {Number} Number of milliseconds*/
+    get utcOffset() {
+        return this.getTimezoneOffset() / -60;
+    }
+    get clone() {
+        return new this.constructor(this);
+    }
+    /**Returns the ISO String from the locale timezone.
+     * @param {{ms:boolean}} options (optional) @returns {String} `yyyy-mm-ddThh:mm:ss[.ms]+hhmm`*/
+    toLocaleISOString(options = {}) {
+        const utcOffset = String(this.utcOffset).padStart(2, 0).padEnd(4, 0);
+        return `${this.yyyymmdd}T${options?.ms !== false ? this.hhmmssms : this.hhmmss}+${utcOffset}`;
+    };
+    /**Returns locale start of the year. If option `locale` is `false` returns the UTC+0 start of the year.
+     * @param {{locale:boolean}} options */
     startOfYear(options = {}) {
-        const _this = new LocaleTimezoneDate(this);
-        _this.setMonth(0, 1);
-        const ms = _this.setHours(options?.locale === false ? _this.getUTCOffset().hour : 0, 0, 0, 0);
-        return options?.ms === false ? _this : ms;
+        this.setMonth(0, 0);
+        return this.startOfDate(options);
     };
-    /**Calculate in UTC +0 the start-time of the date's month that have elapsed since the Unix epoch in milliseconds. Return an instance of LocaleTimezoneDate if "ms" is false.
-     * @param {{ms:boolean locale:boolean}} options @returns {Number} Number of milliseconds*/
+    /**Returns locale start of the month. If option `locale` is `false` returns the UTC+0 start of the month.
+     * @param {{locale:boolean}} options */
     startOfMonth(options = {}) {
-        const _this = new LocaleTimezoneDate(this);
-        _this.setDate(1);
-        const ms = _this.setHours(options?.locale === false ? _this.getUTCOffset().hour : 0, 0, 0, 0);
-        return options?.ms === false ? _this : ms;
+        this.setDate(1);
+        return this.startOfDate(options);
     };
-    /**Calculate in UTC +0 the start-time of the date's day that have elapsed since the Unix epoch in milliseconds. Return an instance of LocaleTimezoneDate if "ms" is false.
-     * @param {{ms:boolean locale:boolean}} options @returns {Number} Number of milliseconds*/
+    /**Returns locale start of the date. If option `locale` is `false` returns the UTC+0 start of the date.
+     * @param {{locale:boolean}} options */
     startOfDate(options = {}) {
-        const _this = new LocaleTimezoneDate(this);
-        const ms = _this.setHours(options?.locale === false ? _this.getUTCOffset().hour : 0, 0, 0, 0);
-        return options?.ms === false ? _this : ms;
+        this.setHours((options?.locale === false ? this.utcOffset : 0), 0, 0, 0);
+        return this;
     };
 };
 module.exports = LocaleTimezoneDate;
